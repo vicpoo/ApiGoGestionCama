@@ -4,7 +4,8 @@ import (
 	"log"
 
 	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/core"
-	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/rol/infrastructure"
+	rolInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/rol/infrastructure"
+	usuarioInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/usuario/infrastructure"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -27,16 +28,22 @@ func main() {
 		MaxAge:           12 * 3600, // 12 horas de caché para preflight requests
 	}))
 
-	// Middleware adicional (ejemplo)
+	// Middleware adicional
 	router.Use(gin.Logger())   // Logger middleware
 	router.Use(gin.Recovery()) // Recovery middleware
 
 	// Inicializar rutas de roles
-	rolRouter := infrastructure.NewRolRouter(router)
+	rolRouter := rolInfra.NewRolRouter(router)
 	rolRouter.Run()
 
+	// Inicializar rutas de usuarios
+	usuarioRouter := usuarioInfra.NewUsuarioRouter(router)
+	usuarioRouter.Run()
+
 	// Iniciar el servidor
-	log.Println("API de Roles inicializada en http://localhost:8000")
+	log.Println("API inicializada en http://localhost:8000")
+	log.Println("- Rutas de roles: /roles")
+	log.Println("- Rutas de usuarios: /usuarios")
 	if err := router.Run(":8000"); err != nil {
 		log.Fatal("Error al iniciar el servidor:", err)
 	}
