@@ -1,0 +1,14 @@
+// rol_repository.go
+package repositories
+
+import (
+	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/rol/domain/entities"
+)
+
+type IRol interface {
+	Save(rol *entities.Rol) error
+	Update(rol *entities.Rol) error
+	Delete(id int32) error
+	GetById(id int32) (*entities.Rol, error)
+	GetAll() ([]entities.Rol, error)
+}
