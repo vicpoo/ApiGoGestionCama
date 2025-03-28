@@ -1,3 +1,4 @@
+// GetUsuarioByIdlUseCase.go
 package application
 
 import (

@@ -1,4 +1,4 @@
-// DeleteUsuarioController.go
+// DeleteMembresiaController.go
 package infrastructure
 
 import (
@@ -6,20 +6,20 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/usuario/application"
+	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/membresia/application"
 )
 
-type DeleteUsuarioController struct {
-	deleteUseCase *application.DeleteUsuarioUseCase
+type DeleteMembresiaController struct {
+	deleteUseCase *application.DeleteMembresiaUseCase
 }
 
-func NewDeleteUsuarioController(deleteUseCase *application.DeleteUsuarioUseCase) *DeleteUsuarioController {
-	return &DeleteUsuarioController{
+func NewDeleteMembresiaController(deleteUseCase *application.DeleteMembresiaUseCase) *DeleteMembresiaController {
+	return &DeleteMembresiaController{
 		deleteUseCase: deleteUseCase,
 	}
 }
 
-func (ctrl *DeleteUsuarioController) Run(c *gin.Context) {
+func (ctrl *DeleteMembresiaController) Run(c *gin.Context) {
 	idParam := c.Param("id")
 	id, err := strconv.Atoi(idParam)
 	if err != nil {
@@ -33,13 +33,13 @@ func (ctrl *DeleteUsuarioController) Run(c *gin.Context) {
 	errDelete := ctrl.deleteUseCase.Run(int32(id))
 	if errDelete != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"message": "No se pudo eliminar el usuario",
+			"message": "No se pudo eliminar la membresía",
 			"error":   errDelete.Error(),
 		})
 		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"status": "Usuario eliminado exitosamente",
+		"status": "Membresía eliminada exitosamente",
 	})
 }

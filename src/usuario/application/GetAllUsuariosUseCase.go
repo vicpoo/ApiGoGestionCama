@@ -1,3 +1,4 @@
+// GetAllUsuariosUseCase.go
 package application
 
 import (

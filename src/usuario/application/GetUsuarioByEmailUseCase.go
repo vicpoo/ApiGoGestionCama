@@ -1,3 +1,4 @@
+// GetUsuarioByEmailUseCase.go
 package application
 
 import (
