@@ -1,4 +1,3 @@
-// DeleteRolController.go
 package infrastructure
 
 import (
@@ -6,20 +5,20 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/rol/application"
+	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/tipo_cama/application"
 )
 
-type DeleteRolController struct {
-	deleteUseCase *application.DeleteRolUseCase
+type DeleteTipoCamaController struct {
+	deleteUseCase *application.DeleteTipoCamaUseCase
 }
 
-func NewDeleteRolController(deleteUseCase *application.DeleteRolUseCase) *DeleteRolController {
-	return &DeleteRolController{
+func NewDeleteTipoCamaController(deleteUseCase *application.DeleteTipoCamaUseCase) *DeleteTipoCamaController {
+	return &DeleteTipoCamaController{
 		deleteUseCase: deleteUseCase,
 	}
 }
 
-func (ctrl *DeleteRolController) Run(c *gin.Context) {
+func (ctrl *DeleteTipoCamaController) Run(c *gin.Context) {
 	idParam := c.Param("id")
 	id, err := strconv.Atoi(idParam)
 	if err != nil {
@@ -33,13 +32,13 @@ func (ctrl *DeleteRolController) Run(c *gin.Context) {
 	errDelete := ctrl.deleteUseCase.Run(int32(id))
 	if errDelete != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"message": "No se pudo eliminar el rol",
+			"message": "No se pudo eliminar el tipo de cama",
 			"error":   errDelete.Error(),
 		})
 		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"status": "Rol eliminado exitosamente",
+		"status": "Tipo de cama eliminado exitosamente",
 	})
 }

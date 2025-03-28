@@ -1,5 +1,5 @@
 // rol_repository.go
-package repositories
+package domain
 
 import (
 	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/rol/domain/entities"

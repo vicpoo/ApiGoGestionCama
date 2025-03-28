@@ -6,6 +6,7 @@ import (
 	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/core"
 	membresiaInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/membresia/infrastructure"
 	rolInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/rol/infrastructure"
+	tipoCamaInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/tipo_cama/infrastructure"
 	usuarioInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/usuario/infrastructure"
 
 	"github.com/gin-contrib/cors"
@@ -14,7 +15,7 @@ import (
 
 func main() {
 	// Inicializar la conexión a la base de datos
-	core.InitDB() // Se mantiene como lo tienes
+	core.InitDB()
 
 	// Crear un router con Gin
 	router := gin.Default()
@@ -45,11 +46,16 @@ func main() {
 	membresiaRouter := membresiaInfra.NewMembresiaRouter(router)
 	membresiaRouter.Run()
 
+	// Inicializar rutas de tipos de cama
+	tipoCamaRouter := tipoCamaInfra.NewTipoCamaRouter(router)
+	tipoCamaRouter.Run()
+
 	// Iniciar el servidor
 	log.Println("API inicializada en http://localhost:8000")
 	log.Println("- Rutas de roles: /roles")
 	log.Println("- Rutas de usuarios: /usuarios")
 	log.Println("- Rutas de membresías: /membresias")
+	log.Println("- Rutas de tipos de cama: /tipos-cama")
 	if err := router.Run(":8000"); err != nil {
 		log.Fatal("Error al iniciar el servidor:", err)
 	}
