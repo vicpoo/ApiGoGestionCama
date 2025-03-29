@@ -5,6 +5,7 @@ import (
 
 	almacenInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/almacen/infrastructure"
 	camaInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/cama/infrastructure"
+	camaAfricanaInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/cama_africana/infrastructure"
 	"github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/core"
 	membresiaInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/membresia/infrastructure"
 	rolInfra "github.com/vicpoo/ApiGoGestionCama/nuevo_proyecto/src/rol/infrastructure"
@@ -59,6 +60,10 @@ func main() {
 	// Inicializar rutas de almacen
 	almacenRouter := almacenInfra.NewAlmacenRouter(router)
 	almacenRouter.Run()
+
+	// Inicializar rutas de cama_africana
+	camaAfricanaRouter := camaAfricanaInfra.NewCamaAfricanaRouter(router)
+	camaAfricanaRouter.Run()
 
 	// Iniciar el servidor
 	log.Println("API inicializada en http://localhost:8000")
