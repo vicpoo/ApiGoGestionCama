@@ -1,3 +1,4 @@
+// CreateAlmacenUseCase.go
 package application
 
 import (

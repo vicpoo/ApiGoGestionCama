@@ -1,3 +1,4 @@
+// GetAllTiposCamaController.go
 package infrastructure
 
 import (

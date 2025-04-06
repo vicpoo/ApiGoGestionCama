@@ -1,3 +1,4 @@
+// cama.go
 package entities
 
 type Cama struct {

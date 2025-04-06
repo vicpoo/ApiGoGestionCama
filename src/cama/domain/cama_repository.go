@@ -1,3 +1,4 @@
+// cama_repository.go
 package domain
 
 import (

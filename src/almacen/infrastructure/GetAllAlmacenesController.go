@@ -1,3 +1,4 @@
+// GetAllAlmacenesController.go
 package infrastructure
 
 import (

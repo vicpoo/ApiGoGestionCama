@@ -1,3 +1,4 @@
+// GetCameByIdUseCase.go
 package application
 
 import (

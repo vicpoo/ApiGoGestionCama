@@ -1,3 +1,4 @@
+// DeleteTipoCamaController.go
 package infrastructure
 
 import (

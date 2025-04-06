@@ -1,3 +1,4 @@
+// GetAlmacenByIdUseCase.go
 package application
 
 import (

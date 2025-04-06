@@ -1,3 +1,4 @@
+// MySQLAlmacenRepository.go
 package infrastructure
 
 import (

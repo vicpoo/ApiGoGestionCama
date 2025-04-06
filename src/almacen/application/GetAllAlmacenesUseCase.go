@@ -1,3 +1,4 @@
+// GetAllAlmacenesUseCase.go
 package application
 
 import (

@@ -1,3 +1,4 @@
+// GetTipoCamaByIdUseCase.go
 package application
 
 import (

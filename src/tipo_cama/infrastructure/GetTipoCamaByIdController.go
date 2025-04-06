@@ -1,3 +1,4 @@
+// GetTipoCamaByIdController.go
 package infrastructure
 
 import (

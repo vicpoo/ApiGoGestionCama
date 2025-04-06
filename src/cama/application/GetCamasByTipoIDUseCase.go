@@ -1,3 +1,4 @@
+// GetCamasByTipoIDUseCase.go
 package application
 
 import (

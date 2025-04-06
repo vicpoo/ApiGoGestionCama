@@ -1,3 +1,4 @@
+// GetAllTiposCamaUseCase.go
 package application
 
 import (

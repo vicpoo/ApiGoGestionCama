@@ -1,3 +1,4 @@
+// CretaTipoCamaUseCase.go
 package application
 
 import (

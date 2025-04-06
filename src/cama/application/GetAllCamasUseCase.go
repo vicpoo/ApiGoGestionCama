@@ -1,3 +1,4 @@
+// GetAllCamasUseCase.go
 package application
 
 import (
